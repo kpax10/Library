@@ -111,7 +111,7 @@ main {
   align-items: center;
 }
 
-button {
+.add-btn {
   background-color: hsl(187, 43%, 92%);
   border: none;
   font-size: 1.4rem;
@@ -119,11 +119,52 @@ button {
   padding: 0.5rem 1.7rem;
 }
 
-button:hover {
+.add-btn:hover {
   background-color: hsl(187deg 24% 75%);
   border-radius: 0.6rem;
 }
 
-main {
-  margin-top: 2rem;
+main button {
+  margin-top: 3rem;
+}
+
+
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: hsl(187, 43%, 92%);
+  padding: 1.3rem 1rem;
+  z-index: 1;
+  text-align: center;
+  width: 280px;
+  border-radius: 0.8rem;
+}
+
+.modal-bg {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: hsla(0, 0%, 0%, 0.35);
+}
+
+.unhide {
+  display: block;
+
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
 }
