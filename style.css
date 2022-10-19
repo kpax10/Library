@@ -114,6 +114,7 @@ main {
 .add-btn {
   background-color: hsl(187, 43%, 92%);
   border: none;
+  margin-top: 3rem;
   font-size: 1.4rem;
   font-weight: var(--fw-bold);
   padding: 0.5rem 1.7rem;
@@ -124,9 +125,9 @@ main {
   border-radius: 0.6rem;
 }
 
-main button {
+/* main button {
   margin-top: 3rem;
-}
+} */
 
 
 
@@ -161,10 +162,21 @@ main button {
 
 h2 {
   font-size: 1.2rem;
+  margin-bottom: 0.7rem;
 }
 
 .modal form {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
+}
+
+input {
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.5rem;
+}
+
+#read {
+  margin-left: 1rem;
 }
