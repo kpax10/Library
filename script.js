@@ -9,21 +9,31 @@ addBookBtn.addEventListener('click', () => {
   modalBg.classList.add('unhide');
 })
 
+function removeModal() {
+  modal.classList.remove('unhide');
+  modalBg.classList.remove('unhide');
+}
+
 document.addEventListener('click', (e) => {
   if (e.target === modalBg) {
-    modal.classList.remove('unhide');
-    modalBg.classList.remove('unhide');
+    removeModal();
+    resetForm();
   }
 })
 
+// clear form inputs when exiting modal or when clicking submit
+function resetForm() {
+  // document.querySelector('#title').value = '';
+  // document.querySelector('#author').value = '';
+  // document.querySelector('#pages').value = '';
+  // document.querySelector('#read').checked = false;
 
-
-
+  document.querySelector('form').reset();
+}
 
 
 
 let myLibrary = [];
-
 
 function Book(title, author, pages, read) {
   this.title = title
@@ -33,7 +43,21 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary() {
+  const title = document.querySelector('#title').value;
+  const author = document.querySelector('#author').value;
+  const pages = document.querySelector('#pages').value;
+  const read = document.querySelector('#read').checked;
 
+  const book = new Book(title, author, pages, read);
 
-  myLibrary.push(getBook)
+  // validate form
+  if (!(title && author && pages)) return
+  myLibrary.push(book);
+  resetForm();
+  removeModal();
+  console.log(myLibrary);
 }
+
+const submitBookBtn = document.querySelector('#submit-book');
+
+submitBookBtn.addEventListener('click', (addBookToLibrary));
