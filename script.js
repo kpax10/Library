@@ -23,11 +23,6 @@ document.addEventListener('click', (e) => {
 
 // clear form inputs when exiting modal or when clicking submit
 function resetForm() {
-  // document.querySelector('#title').value = '';
-  // document.querySelector('#author').value = '';
-  // document.querySelector('#pages').value = '';
-  // document.querySelector('#read').checked = false;
-
   document.querySelector('form').reset();
 }
 
