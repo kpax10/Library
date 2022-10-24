@@ -16,8 +16,8 @@ function removeModal() {
 
 document.addEventListener('click', (e) => {
   if (e.target === modalBg) {
-    removeModal();
     resetForm();
+    removeModal();
   }
 })
 
@@ -50,6 +50,7 @@ function addBookToLibrary() {
   myLibrary.push(book);
   resetForm();
   removeModal();
+
   console.log(myLibrary);
 }
 
