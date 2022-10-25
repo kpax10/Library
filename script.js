@@ -77,11 +77,17 @@ function createCard() {
 
   const cardRead = document.createElement('button');
   card.appendChild(cardRead).classList.add('card-button');
-  cardRead.textContent = myLibrary[myLibrary.length - 1].read ? 'Read' : 'Not read';
+  // cardRead.textContent = myLibrary[myLibrary.length - 1].read ? 'Read' : 'Not read';
+  if (myLibrary[myLibrary.length - 1].read) {
+    cardRead.textContent = 'Read';
+    cardRead.classList.add('read');
+  } else {
+    cardRead.textContent = 'Not read';
+    cardRead.classList.add('not-read');
+  }
 }
 
 submitBookBtn.addEventListener('click', () => {
   addBookToLibrary();
   createCard();
 });
-
