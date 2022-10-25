@@ -77,7 +77,6 @@ function createCard() {
 
   const cardRead = document.createElement('button');
   card.appendChild(cardRead).classList.add('card-button');
-  // cardRead.textContent = myLibrary[myLibrary.length - 1].read ? 'Read' : 'Not read';
   if (myLibrary[myLibrary.length - 1].read) {
     cardRead.textContent = 'Read';
     cardRead.classList.add('read');
@@ -85,9 +84,19 @@ function createCard() {
     cardRead.textContent = 'Not read';
     cardRead.classList.add('not-read');
   }
+
+  const remove = document.createElement('button');
+  card.appendChild(remove).textContent = 'Remove';
+  remove.classList.add('remove');
 }
 
 submitBookBtn.addEventListener('click', () => {
   addBookToLibrary();
   createCard();
 });
+
+// const removeButtons = document.querySelector('.remove');
+
+// removeButtons.addEventListener('click', () => {
+//   console.log('clicked remove');
+// })
