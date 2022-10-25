@@ -54,33 +54,34 @@ function addBookToLibrary() {
   removeModal();
 
   console.log(myLibrary);
-
-  return book;
 }
 
 const submitBookBtn = document.querySelector('#submit-book');
 const cardContainer = document.querySelector('.card-container');
 
-function createCard(book) {
+function createCard() {
   const card = document.createElement('div');
-  cardContainer.appendChild(card);
+  cardContainer.appendChild(card).classList.add('card');
 
-  const titleDisplay = document.createElement('p');
-  card.appendChild(titleDisplay);
-  titleDisplay.textContent = book.title;
+  const cardTitle = document.createElement('p');
+  card.appendChild(cardTitle);
+  cardTitle.textContent = `"${myLibrary[myLibrary.length - 1].title}"`;
 
-  const author = document.createElement('p');
-  card.appendChild(author);
+  const cardAuthor = document.createElement('p');
+  card.appendChild(cardAuthor);
+  cardAuthor.textContent = myLibrary[myLibrary.length - 1].author;
 
-  const pages = document.createElement('p');
-  card.appendChild(pages);
+  const cardPages = document.createElement('p');
+  card.appendChild(cardPages);
+  cardPages.textContent = `${myLibrary[myLibrary.length - 1].pages} pages`;
 
-  const read = document.createElement('p');
-  card.appendChild(read);
+  const cardRead = document.createElement('button');
+  card.appendChild(cardRead).classList.add('card-button');
+  cardRead.textContent = myLibrary[myLibrary.length - 1].read ? 'Read' : 'Not read';
 }
 
-submitBookBtn.addEventListener('click', (book) => {
+submitBookBtn.addEventListener('click', () => {
   addBookToLibrary();
-  createCard(book);
+  createCard();
 });
 

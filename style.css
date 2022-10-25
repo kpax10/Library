@@ -157,7 +157,6 @@ main {
 
 .unhide {
   display: block;
-
 }
 
 h2 {
@@ -179,4 +178,31 @@ input {
 
 #read {
   margin-left: 1rem;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  width: 95%;
+  max-width: 1100px;
+  margin-top: 3rem;
+  /* background-color: red; */
+}
+
+.card {
+  font-size: 18px;
+  font-weight: var(--fw-semi-bold);
+  background-color: white;
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  line-height: 2rem;
+}
+
+.card-button {
+  width: 100%;
+  background-color: rgb(245, 133, 133);
+  border-radius: 0.4rem;
+  border: none;
 }
