@@ -90,13 +90,20 @@ function createCard() {
   remove.classList.add('remove');
 }
 
+let removeButtons = document.querySelectorAll('.remove');
+
 submitBookBtn.addEventListener('click', () => {
   addBookToLibrary();
   createCard();
+  removeButtons = document.querySelectorAll('.remove');
+  removeBtnsListener();
 });
 
-// const removeButtons = document.querySelector('.remove');
+function removeBtnsListener() {
+  removeButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      button.parentElement.remove();
+    })
+  })
+}
 
-// removeButtons.addEventListener('click', () => {
-//   console.log('clicked remove');
-// })
