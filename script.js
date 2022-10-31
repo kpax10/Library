@@ -54,6 +54,8 @@ function addBookToLibrary() {
   removeModal();
 
   console.log(myLibrary);
+
+  createCard();
 }
 
 const submitBookBtn = document.querySelector('#submit-book');
@@ -94,7 +96,6 @@ let removeButtons = document.querySelectorAll('.remove');
 
 submitBookBtn.addEventListener('click', () => {
   addBookToLibrary();
-  createCard();
   removeButtons = document.querySelectorAll('.remove');
   removeBtnsListener();
 });
