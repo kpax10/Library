@@ -53,8 +53,6 @@ function addBookToLibrary() {
   resetForm();
   removeModal();
 
-  console.log(myLibrary);
-
   createCard();
 }
 
@@ -64,6 +62,7 @@ const cardContainer = document.querySelector('.card-container');
 function createCard() {
   const card = document.createElement('div');
   cardContainer.appendChild(card).classList.add('card');
+  card.setAttribute('data-value', myLibrary[myLibrary.length - 1].title); // set data attribute as book title
 
   const cardTitle = document.createElement('p');
   card.appendChild(cardTitle);
@@ -95,16 +94,29 @@ function createCard() {
 let removeButtons = document.querySelectorAll('.remove');
 
 submitBookBtn.addEventListener('click', () => {
+  event.preventDefault();
   addBookToLibrary();
   removeButtons = document.querySelectorAll('.remove');
-  removeBtnsListener();
+  removeButtonListener();
 });
 
-function removeBtnsListener() {
-  removeButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      button.parentElement.remove();
+
+function removeButtonListener() {
+  let userInput;
+  removeButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+      // event.stopPropagation();
+      let item = event.currentTarget.parentNode;
+      return userInput = item.dataset.value;
+      console.log('user input:', userInput);
+      item.remove();
+      // let itemIndex = myLibrary.indexOf(userInput); // this is not working properly.
+      // console.log(itemIndex)
+      // myLibrary.splice(itemIndex, 1);
+      console.log(myLibrary);
+      return userInput;
     })
   })
 }
+
 
