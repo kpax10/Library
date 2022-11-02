@@ -21,12 +21,9 @@ document.addEventListener('click', (e) => {
   }
 })
 
-// clear form inputs when exiting modal or when clicking submit
 function resetForm() {
   document.querySelector('form').reset();
 }
-
-
 
 let myLibrary = [];
 
@@ -36,8 +33,6 @@ function Book(title, author, pages, read) {
   this.pages = pages
   this.read = read
 }
-
-
 
 function addBookToLibrary() {
   const title = document.querySelector('#title').value;
@@ -52,7 +47,6 @@ function addBookToLibrary() {
   myLibrary.push(book);
   resetForm();
   removeModal();
-
   createCard();
 }
 
@@ -89,34 +83,18 @@ function createCard() {
   const remove = document.createElement('button');
   card.appendChild(remove).textContent = 'Remove';
   remove.classList.add('remove');
+  remove.addEventListener('click', removeCard)
 }
 
-let removeButtons = document.querySelectorAll('.remove');
-
-submitBookBtn.addEventListener('click', () => {
+submitBookBtn.addEventListener('click', (event) => {
   event.preventDefault();
   addBookToLibrary();
-  removeButtons = document.querySelectorAll('.remove');
-  removeButtonListener();
 });
 
-
-function removeButtonListener() {
-  let userInput;
-  removeButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
-      // event.stopPropagation();
-      let item = event.currentTarget.parentNode;
-      return userInput = item.dataset.value;
-      console.log('user input:', userInput);
-      item.remove();
-      // let itemIndex = myLibrary.indexOf(userInput); // this is not working properly.
-      // console.log(itemIndex)
-      // myLibrary.splice(itemIndex, 1);
-      console.log(myLibrary);
-      return userInput;
-    })
-  })
+function removeCard(event) {
+  let card = event.currentTarget.parentNode;
+  let cardDataAttr = card.dataset.value;
+  card.remove();
+  let itemIndex = myLibrary.indexOf(cardDataAttr);
+  myLibrary.splice(itemIndex, 1);
 }
-
-
