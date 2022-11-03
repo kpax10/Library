@@ -111,10 +111,10 @@ function changeReadStatus(event) {
   let cardDataAttr = card.dataset.value;
   let nodeArray = Array.from(document.querySelectorAll('.card'));
 
-  let location;
+  let index;
   for (let i = 0; i <= nodeArray.length - 1; i++) {
-    if (nodeArray[i].dataset.value === cardDataAttr) location = i;
+    if (nodeArray[i].dataset.value === cardDataAttr) index = i;
   }
-  myLibrary[location].readStatus();
+  myLibrary[index].readStatus();
   console.log(myLibrary);
 }
