@@ -117,4 +117,7 @@ function changeReadStatus(event) {
   }
   myLibrary[index].readStatus();
   console.log(myLibrary);
+
+  // card.remove();
+  // createCard();
 }
