@@ -34,6 +34,10 @@ function Book(title, author, pages, read) {
   this.read = read
 }
 
+Book.prototype.readStatus = function () {
+  return this.read ? this.read = false : this.read = true;
+}
+
 function addBookToLibrary() {
   const title = document.querySelector('#title').value;
   const author = document.querySelector('#author').value;
@@ -79,6 +83,7 @@ function createCard() {
     cardRead.textContent = 'Not read';
     cardRead.classList.add('not-read');
   }
+  cardRead.addEventListener('click', changeReadStatus);
 
   const remove = document.createElement('button');
   card.appendChild(remove).textContent = 'Remove';
@@ -97,4 +102,19 @@ function removeCard(event) {
   card.remove();
   let itemIndex = myLibrary.indexOf(cardDataAttr);
   myLibrary.splice(itemIndex, 1);
+}
+
+
+
+function changeReadStatus(event) {
+  let card = event.currentTarget.parentNode;
+  let cardDataAttr = card.dataset.value;
+  let nodeArray = Array.from(document.querySelectorAll('.card'));
+
+  let location;
+  for (let i = 0; i <= nodeArray.length - 1; i++) {
+    if (nodeArray[i].dataset.value === cardDataAttr) location = i;
+  }
+  myLibrary[location].readStatus();
+  console.log(myLibrary);
 }
