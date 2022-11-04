@@ -104,8 +104,6 @@ function removeCard(event) {
   myLibrary.splice(itemIndex, 1);
 }
 
-
-
 function changeReadStatus(event) {
   let card = event.currentTarget.parentNode;
   let cardDataAttr = card.dataset.value;
@@ -116,7 +114,6 @@ function changeReadStatus(event) {
     if (nodeArray[i].dataset.value === cardDataAttr) index = i;
   }
   myLibrary[index].readStatus();
-  console.log(myLibrary);
 
   let readButton = event.currentTarget
   if (readButton.classList.contains('read')) {
