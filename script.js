@@ -118,6 +118,17 @@ function changeReadStatus(event) {
   myLibrary[index].readStatus();
   console.log(myLibrary);
 
+  let readButton = event.currentTarget
+  if (readButton.classList.contains('read')) {
+    console.log('contains read');
+    readButton.classList.remove('read');
+    readButton.classList.add('not-read');
+  } else {
+    readButton.classList.remove('not-read')
+    readButton.classList.add('read');
+  }
+
+
   // card.remove();
   // createCard();
 }
