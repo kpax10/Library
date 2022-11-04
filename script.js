@@ -120,15 +120,12 @@ function changeReadStatus(event) {
 
   let readButton = event.currentTarget
   if (readButton.classList.contains('read')) {
-    console.log('contains read');
     readButton.classList.remove('read');
     readButton.classList.add('not-read');
+    readButton.textContent = 'Not read';
   } else {
     readButton.classList.remove('not-read')
     readButton.classList.add('read');
+    readButton.textContent = 'Read';
   }
-
-
-  // card.remove();
-  // createCard();
 }
