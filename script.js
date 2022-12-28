@@ -27,15 +27,17 @@ function resetForm() {
 
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
-  this.title = title
-  this.author = author
-  this.pages = pages
-  this.read = read
-}
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 
-Book.prototype.readStatus = function () {
-  return this.read ? this.read = false : this.read = true;
+  readStatus() {
+    return this.read ? this.read = false : this.read = true;
+  }
 }
 
 function addBookToLibrary() {
